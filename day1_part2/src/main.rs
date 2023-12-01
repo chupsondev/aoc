@@ -45,23 +45,25 @@ fn get_num_from_line(line: &str) -> i32 {
     let mut last_dig: Option<i32> = None;
 
     let mut current_spelled: String = String::new();
+    let mut i = 0;
     for c in line.chars() {
-        let mut digit: Option<i32> = None;
-        if c.is_numeric() {
-            digit = Some(c.to_digit(10).unwrap() as i32);
-            current_spelled.clear();
-        } else {
-            current_spelled.push(c);
-            let spelled_num = is_spelled_num(&current_spelled);
-            if let SpelledNum::None = spelled_num {
-                current_spelled = String::from(c);
-            }
-            if let SpelledNum::Some(n) = spelled_num {
-                digit = Some(n);
-                current_spelled = String::from(c);
-            }
-        }
+        let mut digit: Option<i32> = check_part(&line[i..]);
+        // if c.is_numeric() {
+        //     digit = Some(c.to_digit(10).unwrap() as i32);
+        //     current_spelled.clear();
+        // } else {
+        //     current_spelled.push(c);
+        //     let spelled_num = is_spelled_num(&current_spelled);
+        //     if let SpelledNum::None = spelled_num {
+        //         current_spelled = String::from(c);
+        //     }
+        //     if let SpelledNum::Some(n) = spelled_num {
+        //         digit = Some(n);
+        //         current_spelled = String::from(c);
+        //     }
+        // }
 
+        i += 1;
         if let None = digit { continue }
 
         if let None = first_dig {
