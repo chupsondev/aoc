@@ -18,7 +18,7 @@ fn part1_calc_points(card: &str) -> i32 {
     }
 
     match winning_on_card {
-        n if n > 0 => 2_i32.pow((n - 1)),
+        n if n > 0 => 2_i32.pow(n - 1),
         _ => 0
     }
 }
