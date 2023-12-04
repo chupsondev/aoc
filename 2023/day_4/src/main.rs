@@ -5,6 +5,7 @@ fn part1_calc_points(card: &str) -> i32 {
     let mut split = card.split(" | ");
     let winning: &str = split.next().unwrap();
     let owned: &str = split.next().unwrap();
+
     let winning: HashSet<i32> = winning.split_ascii_whitespace().map(|x| x.trim().parse::<i32>().unwrap()).collect();
     let owned: Vec<i32> = owned.split_ascii_whitespace().map(|x| x.trim().parse::<i32>().unwrap()).collect();
 
@@ -15,9 +16,9 @@ fn part1_calc_points(card: &str) -> i32 {
             false => 0,
         }
     }
+
     match winning_on_card {
-        0 => 0,
-        n if n > 0 => 2_i32.pow((n - 1) as u32),
+        n if n > 0 => 2_i32.pow((n - 1)),
         _ => 0
     }
 }
