@@ -8,7 +8,7 @@ The templates that I use for my solutions
 use std::fs;
 
 mod part1 {
-    fn solve(input: &str) -> i32 {
+    pub fn solve(input: &str) -> i32 {
         todo!()
     }
 }
@@ -20,6 +20,7 @@ fn main() {
 
 #[cfg(test)]
 mod pt1_tests {
+    use super::*;
 
     #[test]
     fn example() {}
